@@ -1,0 +1,36 @@
+このLibraryフォルダのデータはゲーム制作用の自作ライブラリです。
+
+C++17、DirectX11環境で開発しています。
+
+
+ファイルが多いのでライブラリの中心や、アピールしたいファイルを以下書きます。
+
+StartingOverはWindowやGameLoopや、Presentといったものすべてを取り扱い、mainには基本的にStartingOver以外のものは書かないようにしています。
+
+
+DirectXSystemはDirectX11関連の物を扱っていて、ここでdeviceなどの初期化や管理しています。
+
+
+Handlerは全て似たクラスになっており、Sceneでそれぞれサポートしているクラスを使用しやすくするためにあります。
+
+
+Objectは以下のクラスの大本です。　このクラスでは名前やタグのを保持しています。
+今後ゲーム制作中に更新する可能性はありますが現在は未定です。
+https://docs.unity3d.com/jp/current/ScriptReference/Object.html
+
+Component　componentはunityのまま、GameObjectといったものにアタッチされるもののベースクラスです。
+RenderObject、Transform、Cameraといったもので継承されています。
+
+RenderObjectはSkinnedMeshやStaticMeshといったものを少し補助するクラスです。
+
+ExistObectはSceneのすべてのエンティティのベースクラスです
+現状、LightやCameraといった物はまだですがオブジェクトはこのクラスが元です。
+
+Transformはオブジェクトの位置、回転、スケールを扱っています。
+
+
+DebugUIではDebugモードでのみ使用でき、何もないobjectの生成、sceneのSaveとLoad、簡易的にunityのinspectorとHieralchyを使えます。
+
+
+CerealはSceneの保存、ObjectのTemplateの作成、モデルの初回読み込み時に別ファイルへ書き出しで使用しています。
+

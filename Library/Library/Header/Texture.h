@@ -29,38 +29,3 @@ namespace StartingOver
 }
 
 
-
-
-class Texture
-{
-protected:
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> SRView = nullptr;
-	Microsoft::WRL::ComPtr<ID3D11SamplerState>		 sampler = nullptr;
-	Microsoft::WRL::ComPtr<ID3D11RenderTargetView>   RTView = nullptr;
-	Microsoft::WRL::ComPtr<ID3D11DepthStencilView>   DSView = nullptr;
-	// テクスチャ情報
-	D3D11_TEXTURE2D_DESC tex2dDesc;
-
-public:
-	bool is_Texture;
-
-public:
-	Texture() = default;
-	virtual ~Texture(){};
-	bool Load(const std::string& filename, int samplerState = 0);
-	bool LoadMipMap(const std::string* mipMapName = nullptr);
-	bool MakeDummyTexture(ID3D11Device* device);
-	void Set(UINT slot = 0, BOOL flg = TRUE);
-	UINT GetWidth() { return tex2dDesc.Width; }
-	UINT GetHeight() { return tex2dDesc.Height; }
-	bool Create(u_int width, u_int height, DXGI_FORMAT format);
-
-
-	// Create DeothStencilBuffer
-	bool CreateDepth(u_int width, u_int height, DXGI_FORMAT format = DXGI_FORMAT_R24G8_TYPELESS);
-		
-	ID3D11RenderTargetView* GetRenderTarget() { return RTView.Get(); }
-	ID3D11DepthStencilView* GetDepthStencilView() { return DSView.Get(); }
-	ID3D11ShaderResourceView** GetSRView() { return SRView.GetAddressOf(); }
-
-};
