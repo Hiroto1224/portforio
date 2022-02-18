@@ -34,3 +34,4 @@ DebugUIではDebugモードでのみ使用でき、何もないobjectの生成�
 
 CerealはSceneの保存、ObjectのTemplateの作成、モデルの初回読み込み時に別ファイルへ書き出しで使用しています。
 
+exeはマウスホイールでカメラの速度を変更できます。
